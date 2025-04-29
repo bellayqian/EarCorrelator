@@ -1,0 +1,17 @@
+# macOS system files
+.DS_Store
+.Rapp.history
+
+# R specific files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+
+# Temporary files
+~$*
+~$*.xlsx
+
+# Shiny deployment files
+rsconnect/
