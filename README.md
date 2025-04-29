@@ -18,48 +18,23 @@ This repository implements enhanced Quadratic Discriminant Analysis (QDA) algori
       
 - **Missing Data Handling**: Accommodates participants with measurements from one or both ears
 
-### Installation
+## Ear Type Classification Dashboard
 
-```R
-# Install dependencies
-install.packages(c("MASS", "Matrix", "lme4", "nlme", "optimx"))
+This interactive dashboard provides real-time classification of ear types using QDA methods.
 
-# Install development version
-devtools::install_github("username/correlated-qda")
-```
+### Features
+- Upload CSV data or enter values manually
+- Run both Naive QDA and Improved QDA classification
+- Visualize audiograms and classification probabilities
+- Compare results between different classification methods
 
-### Usage
+### Setup Instructions
+1. Ensure R and required packages are installed
+2. Run `app.R` to start the dashboard
+3. Pre-trained models will be generated on first run
 
-```R
-library(correlatedQDA)
-
-# Load example audiometric data
-data("audiometric_data")
-
-# GEE-based QDA
-gee_model <- correlatedQDA::fit_gee_qda(
-  data = audiometric_data,
-  frequency_cols = c("f250", "f500", "f1000", "f2000", "f3000", "f4000", "f6000", "f8000"),
-  phenotype_col = "phenotype",
-  ear_col = "ear_id",
-  subject_col = "subject_id"
-)
-
-# Predict phenotypes
-predictions <- predict(gee_model, newdata = test_data)
-
-# Mixed Model QDA
-mm_model <- correlatedQDA::fit_mixed_qda(
-  data = audiometric_data,
-  frequency_cols = c("f250", "f500", "f1000", "f2000", "f3000", "f4000", "f6000", "f8000"),
-  phenotype_col = "phenotype",
-  ear_col = "ear_id",
-  subject_col = "subject_id"
-)
-
-# Predict phenotypes
-mm_predictions <- predict(mm_model, newdata = test_data)
-```
+### Deployment
+The dashboard is deployed at: https://bellayqian.shinyapps.io/EarCorrelator/
 
 ### Data Format
 
